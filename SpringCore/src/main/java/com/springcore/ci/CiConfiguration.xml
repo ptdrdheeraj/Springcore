@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    ">
+
+	<bean name="certi" class="com.springcore.ci.Certi"
+		c:name="java is programming language...">
+
+		<!-- <constructor-arg value="java is programming language"/> -->
+	</bean>
+
+	<bean name="person" class="com.springcore.ci.Person">
+		<constructor-arg value="Dheeraj" />
+		<constructor-arg value="36" type="int" />
+		<constructor-arg ref="certi" />
+
+	</bean>
+
+	<bean name="Add" class="com.springcore.ci.Addition">
+		<constructor-arg value="23" type="int" /> <!-- this is Ambiguity it means if type Attribute is not defined then it will consider String byDefault ( priority String > )or follow order -->
+		<constructor-arg value="45" type="int"/>
+
+	</bean>
+
+
+
+</beans>
